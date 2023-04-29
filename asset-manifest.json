@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/deokgoo/react-maru_project/static/js/main.6343ae5d.js",
-    "static/js/787.d9c4732b.chunk.js": "/deokgoo/react-maru_project/static/js/787.d9c4732b.chunk.js",
-    "index.html": "/deokgoo/react-maru_project/index.html",
-    "main.6343ae5d.js.map": "/deokgoo/react-maru_project/static/js/main.6343ae5d.js.map",
-    "787.d9c4732b.chunk.js.map": "/deokgoo/react-maru_project/static/js/787.d9c4732b.chunk.js.map"
+    "main.js": "/react-maru_project/static/js/main.cb5e8a52.js",
+    "static/js/787.d9c4732b.chunk.js": "/react-maru_project/static/js/787.d9c4732b.chunk.js",
+    "index.html": "/react-maru_project/index.html",
+    "main.cb5e8a52.js.map": "/react-maru_project/static/js/main.cb5e8a52.js.map",
+    "787.d9c4732b.chunk.js.map": "/react-maru_project/static/js/787.d9c4732b.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.6343ae5d.js"
+    "static/js/main.cb5e8a52.js"
   ]
 }
