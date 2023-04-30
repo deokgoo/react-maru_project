@@ -7,6 +7,7 @@ import Login from './components/Login';
 import AdminMain from './components/AdminMain';
 import Error from './components/Error';
 import DetailWork from './components/DetailWork';
+import UploadImage from './components/UploadImage';
 
 const Router = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/auth/complete" element={<Login />} />
         <Route path="/admin" element={<AdminMain />} />
         <Route path="/admin/list" element={<AdminMain />} />
+        <Route path="/admin/upload" element={<UploadImage />} />
         <Route path="/user/:workId" element={<DetailWork />} />
         <Route path="/*" element={Error} />
       </Routes>

@@ -19,7 +19,9 @@ const DetailWork = () => {
 
   // table의 row Component를 만들어주는 함수
   const makeRow = () => {
-    return colorMap.map((x, idx) => {
+    console.log(colorMap);
+    if(colorMap?.length === 0) return;
+    return colorMap?.map((x, idx) => {
       const isBorder = (idx + 1) % 10 === 0;
       return (
         <div className={`${style.row} ${isBorder && style.bold}`}>
