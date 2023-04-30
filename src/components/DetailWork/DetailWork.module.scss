@@ -1,6 +1,8 @@
 .controller {
   display: flex;
   flex-direction: column;
+  overflow: scroll;
+
   .row {
     display: flex;
 
@@ -11,7 +13,7 @@
     .col {
       width: 24px;
       height: 24px; 
-      text-align:center;
+      text-align: center;
       border: 1px solid white;
       &.bold {
         border-right: 5px solid white;

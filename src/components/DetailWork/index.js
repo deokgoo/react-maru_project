@@ -8,11 +8,12 @@ import style from './DetailWork.module.scss';
 const DetailWork = () => {
   const { workId } = useParams();
   const [colorMap, setColorMap] = useState([]);
+  const [maxWidth, setMaxWidth] = useState(1200);
   useEffect(() => {
     (async () => {
       const fetchedColorMap = await getStorageFile(workId);
       setColorMap(fetchedColorMap);
-      console.log(fetchedColorMap);
+      setMaxWidth(fetchedColorMap?.length * 29);
     })();
   }, [workId]);
 
@@ -43,7 +44,7 @@ const DetailWork = () => {
   }
   
   return (
-    <div className={style.controller}>
+    <div className={style.controller} style={{width: maxWidth}}>
       {makeRow()}
     </div>
   )
