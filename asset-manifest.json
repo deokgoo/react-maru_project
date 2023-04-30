@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-maru_project/static/css/main.31fd5846.css",
-    "main.js": "/react-maru_project/static/js/main.7da7a1e7.js",
+    "main.js": "/react-maru_project/static/js/main.f33a12a1.js",
     "static/js/787.d9c4732b.chunk.js": "/react-maru_project/static/js/787.d9c4732b.chunk.js",
     "index.html": "/react-maru_project/index.html",
     "main.31fd5846.css.map": "/react-maru_project/static/css/main.31fd5846.css.map",
-    "main.7da7a1e7.js.map": "/react-maru_project/static/js/main.7da7a1e7.js.map",
+    "main.f33a12a1.js.map": "/react-maru_project/static/js/main.f33a12a1.js.map",
     "787.d9c4732b.chunk.js.map": "/react-maru_project/static/js/787.d9c4732b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31fd5846.css",
-    "static/js/main.7da7a1e7.js"
+    "static/js/main.f33a12a1.js"
   ]
 }
