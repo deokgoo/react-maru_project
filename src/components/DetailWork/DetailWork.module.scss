@@ -1,0 +1,21 @@
+.controller {
+  display: flex;
+  flex-direction: column;
+  .row {
+    display: flex;
+
+    &.bold {
+      border-bottom: 5px solid white;
+    }
+
+    .col {
+      width: 24px;
+      height: 24px; 
+      text-align:center;
+      border: 1px solid white;
+      &.bold {
+        border-right: 5px solid white;
+      }
+    }
+  }
+}

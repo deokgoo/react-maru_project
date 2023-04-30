@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 
-import { firebaseLinkEmailSend } from '../util/firebaseAuth';
+import { firebaseLinkEmailSend, firebaseLoginWithPW } from '../util/firebase/firebaseAuth';
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    firebaseLinkEmailSend(email);
+    firebaseLoginWithPW(email, password);
   };
 
   return (
@@ -23,6 +24,13 @@ const Login = ({ history }) => {
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+          />
+          <label htmlFor="password">PW</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </div>
         <button type="submit">Login</button>
