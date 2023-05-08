@@ -12,8 +12,8 @@
     }
 
     .col {
-      width: 24px;
-      height: 24px; 
+      width: 34px;
+      height: 34px; 
       text-align: center;
       border: 1px solid white;
       &.bold {
@@ -26,5 +26,6 @@
 .showBlock {
   display: flex;
   flex-wrap: wrap;
-  width:100%;
+  width: 1450px;
+  padding: 30px;
 }

@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import html2canvas from 'html2canvas';
+
 import { getStorageFile } from '../../util/firebase/firebaseStorage';
 import { colorStrArr } from '../../util/colorMap';
 
@@ -10,6 +12,8 @@ const DetailWork = () => {
   const [colorMap, setColorMap] = useState([]);
   const [colorSummary, setColorSummary] = useState({});
   const [maxWidth, setMaxWidth] = useState(1200);
+  const dashboardRef = useRef(null);
+
   useEffect(() => {
     (async () => {
       const fetchedColorMap = await getStorageFile(workId);
@@ -66,11 +70,11 @@ const DetailWork = () => {
   const makeColorSummary = () => {
     return Object.keys(colorSummary).map((x, idx) => {
       return (
-        <div key={x} style={{ display: 'flex', alignItems: 'center', fontSize: '24px' }}>
-          <div style={{ minWidth: '24px', minHeight: '24px', border: '1px solid gray', textAlign: 'center', backgroundColor: colorStrArr[x], padding: '4px', color: revsionFontColor(x)}}>
+        <div key={x} style={{ display: 'flex', alignItems: 'center', fontSize: '24px', width: '200px' }}>
+          <div style={{ width: '54px', height: '54px', border: '1px solid gray', textAlign: 'center', backgroundColor: colorStrArr[x], padding: '4px', color: revsionFontColor(x)}}>
             {Number(x) + 1}
           </div>
-          <div style={{marginLeft: '4px', fontSize: '56px'}}>{colorSummary[x]}</div>
+          <div style={{marginLeft: '4px', fontSize: '36px'}}>{colorSummary[x]}</div>
           {
             idx + 1 < Object.keys(colorSummary).length && <div style={{marginRight: '25px'}}></div>
           }
@@ -78,14 +82,44 @@ const DetailWork = () => {
       )
     })
   }
+
+  const screenshotCanvas = () => {
+    return html2canvas(dashboardRef.current, {
+      scale: 1,
+      width: dashboardRef.current.offsetWidth,
+      height: dashboardRef.current.offsetHeight,
+    });
+  }
+
+  const handleImageDownload = () => {
+    try {
+      screenshotCanvas().then(canvas => {
+        const imgData = canvas.toDataURL('image/jpeg');
+        const link = document.createElement('a');
+        link.download = `${workId}.jpeg`;
+        link.href = imgData;
+        link.click();
+        link.remove();
+      })
+    } catch {
+      alert('에러 발생 관리자에게 문의해주세요')
+    }
+  }
   
   return (
     <>
-      <div className={style.controller} style={{width: maxWidth}}>
-        {makeRow()}
+      <div ref={dashboardRef} style={{width: maxWidth}}>
+        <div className={style.controller} style={{width: maxWidth}}>
+          {makeRow()}
+        </div>
+        <div className={style.showBlock}>
+          {makeColorSummary()}
+        </div>
       </div>
-      <div className={style.showBlock}>
-        {makeColorSummary()}
+      <div className="btn-wrapper flex justify-center m-20" style={{width: '1450px'}}>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleImageDownload}>
+          이미지 다운로드
+        </button>
       </div>
     </>
   );
