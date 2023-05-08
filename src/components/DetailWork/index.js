@@ -69,9 +69,10 @@ const DetailWork = () => {
 
   const makeColorSummary = () => {
     return Object.keys(colorSummary).map((x, idx) => {
+      const color = colorStrArr[x];
       return (
         <div key={x} style={{ display: 'flex', alignItems: 'center', fontSize: '24px', width: '200px' }}>
-          <div style={{ width: '54px', height: '54px', border: '1px solid gray', textAlign: 'center', backgroundColor: colorStrArr[x], padding: '4px', color: revsionFontColor(x)}}>
+          <div style={{ width: '54px', height: '54px', border: '1px solid gray', textAlign: 'center', backgroundColor: colorStrArr[x], padding: '4px', color: revsionFontColor(color)}}>
             {Number(x) + 1}
           </div>
           <div style={{marginLeft: '4px', fontSize: '36px'}}>{colorSummary[x]}</div>
