@@ -12,6 +12,7 @@ const DetailWork = () => {
   const [colorMap, setColorMap] = useState([]);
   const [colorSummary, setColorSummary] = useState({});
   const [maxWidth, setMaxWidth] = useState(1200);
+  const [hide, setHide] = useState(false);
   const dashboardRef = useRef(null);
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const DetailWork = () => {
       const color = colorStrArr[x];
       const isBorder = (idx + 1) % 10 === 0;
       return (
-        <div className={`${style.col} ${isBorder && style.bold}`} style={{backgroundColor: color, color: revsionFontColor(color)}}>
+        <div className={`${style.col} ${isBorder && style.bold}`} style={{backgroundColor: color, color: hide? 'transparent' : revsionFontColor(color)}}>
           {x + 1}
         </div>
       )
@@ -106,6 +107,10 @@ const DetailWork = () => {
       alert('에러 발생 관리자에게 문의해주세요')
     }
   }
+
+  const handleHide = () => {
+    setHide(prev => !prev);
+  }
   
   return (
     <>
@@ -120,6 +125,9 @@ const DetailWork = () => {
       <div className="btn-wrapper flex justify-center m-20" style={{width: '1450px'}}>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleImageDownload}>
           이미지 다운로드
+        </button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleHide}>
+          가리기
         </button>
       </div>
     </>
